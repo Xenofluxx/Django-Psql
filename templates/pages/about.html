@@ -1,166 +1,102 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+
 {% load static %}
+
 {% block content %}
+
 <!-- Showcase -->
-<section id="showcase">
-  <div class="container text-center">
-    <div class="home-search p-5">
-      <div class="overlay p-5">
-        <h1 class="display-4 mb-4">
-          Tea For Thee
-        </h1>
-        <p class="lead">Delicious tea from around the world</p>
-        <div class="search">
-          <form action="search.html">
-            <!-- Form Row 1 -->
-            <div class="form-row">              
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">About Binary Helix</h1>
+          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-              <div class="col-md-4 mb-3">
-                <label class="sr-only">City</label>
-                <input type="text" name="city" class="form-control" placeholder="I am searching for...">
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item active"> About</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <section id="about" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>From the field to your table</h2>
+          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+          <img src="{% static 'img/about.jpg' %}" alt="">
+          <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis esse officia repudiandae ad saepe ex, amet
+            neque quod accusamus rem quia magnam magni dolorum facilis ullam minima perferendis? Exercitationem at quaerat
+            commodi id libero eveniet harum perferendis laborum molestias quia.</p>
+        </div>
+        <div class="col-md-4">
+          {% if mvp_realtors %}
+            {% for realtor in mvp_realtors %}
+            <div class="card">
+              <img class="card-img-top" src="{{realtor.photo.url}}" alt="Seller of the month">
+              <div class="card-body">
+                <h5 class="card-title">Tea Of The Month</h5>
+                <h6 class="text-secondary">{{realtor.name}}</h6>
+                <p class="card-text">{{realtor.description}}
+                </p>
               </div>
-
-              <div class="col-md-4 mb-3">
-                <label class="sr-only">State</label>
-                <select name="state" class="form-control">
-                  <option selected="true" disabled="disabled">Tea Type</option>
-                  <option value="AL">Green</option>
-                  <option value="AK">Black</option>
-                  <option value="AZ">White</option>
-                  <option value="AR">Oolong</option>
-                  <option value="CA">Pu-erh</option>
-                  <option value="CO">Yellow</option>
-                  <option value="CT">Flower tea</option>                              
-                </select>
-              </div>          
-
-              <div class="col-md-4 mb-3">
-                <select name="price" class="form-control" id="type">
-                  <option selected="true" disabled="disabled">Max Price (Any)</option>
-                  <option value="10">$10</option>
-                  <option value="20">$20</option>
-                  <option value="30">$30</option>                
-                </select>
-              </div>
             </div>
-
-            <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
-          </form>
+            {% endfor %}
+          {% endif %}
+          
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Listings -->
-<section id="listings" class="py-5">
-  <div class="container">
-    <h3 class="text-center mb-3">Latest aditions</h3>
-    <div class="row">
-      <!-- Listing 1 -->
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card listing-preview">
-          <img class="card-img-top" src="assets/img/homes/home-1.jpg" alt="">
-          <div class="card-img-overlay">
-            <h2>
-              <span class="badge badge-secondary text-white">$10</span>
-            </h2>
-          </div>
-          <div class="card-body">
-            <div class="listing-heading text-center">
-              <h4 class="text-primary">Iron Goddess</h4>
-              <p>
-                <i class="fa-solid fa-leaf"></i> Black tea</p>
-            </div>
-            <hr>             
-            <hr>            
-            <div class="row text-secondary pb-2">
-              <div class="col-6">
-                <i class="fa-solid fa-mug-hot"></i></div>
-            </div>
-            <hr>
-            <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
-          </div>
+  <!-- Work -->
+  <section id="work" class="bg-dark text-white text-center">
+    <h2 class="display-4">We Work For You</h2>
+    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit aperiam, unde aliquid at similique!</h4>
+    <hr>
+    <a href="listings.html" class="btn btn-secondary text-white btn-lg">View Our Featured Listings</a>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="py-5">
+    <div class="container">
+      <h2 class="text-center">Our Team</h2>
+      <div class="row text-center">
+        {% if realtors %}
+          {% for realtor in realtors %}
+          
+        <div class="col-md-4">
+          <img src="{{realtor.photo.url}}" alt="" class="rounded-circle mb-3">
+          <h4>{{realtor.name}}</h4>
+          <p class="text-success">
+            <i class="fas fa-award text-success mb-3"></i> Realtor</p>
+          <hr>
+          <p>
+            <i class="fas fa-phone"></i> {{realtor.phone}}</p>
+          <p>
+            <i class="fas fa-envelope-open"></i> {{realtor.email}}</p>
         </div>
-      </div>
 
-      <!-- Listing 2 -->
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card listing-preview">
-          <img class="card-img-top" src="assets/img/homes/home-2.jpg" alt="">
-          <div class="card-img-overlay">
-            <h2>
-              <span class="badge badge-secondary text-white">$13</span>
-            </h2>
-          </div>
-          <div class="card-body">
-            <div class="listing-heading text-center">
-              <h4 class="text-primary">Golden Monkey Black Tea</h4>
-              <p>
-                <i class="fa-solid fa-leaf"></i> Black tea</p>
-            </div>
-            <hr>             
-            <hr>            
-            <div class="row text-secondary pb-2">
-              <div class="col-6">
-                <i class="fa-solid fa-mug-hot"></i></div>
-            </div>
-            <hr>
-            <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
-          </div>
+          {% endfor %}
+        {% else %}
+        <div class="col-md-12">
+          <p>Tea Of The Month</p>
         </div>
+        {% endif %}
       </div>
-
-      <!-- Listing 3 -->
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card listing-preview">
-          <img class="card-img-top" src="assets/img/homes/home-3.jpg" alt="">
-          <div class="card-img-overlay">
-            <h2>
-              <span class="badge badge-secondary text-white">$15</span>
-           </h2>
-          </div>
-          <div class="card-body">
-            <div class="listing-heading text-center">
-              <h4 class="text-primary">Rou Gui</h4>
-              <p>
-                <i class="fa-solid fa-leaf"></i> Oolong</p>
-            </div>
-            <hr>             
-            <hr>            
-            <div class="row text-secondary pb-2">
-              <div class="col-6">
-                <i class="fa-solid fa-mug-hot"></i></div>
-            </div>
-            <hr>
-            <a href="listing.html" class="btn btn-primary btn-block">More Info</a>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
-
-<section id="services" class="py-5 bg-secondary text-white">
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-md-4">
-        <i class="fas fa-comment fa-4x mr-4"></i>
-        <hr>
-        <h3>About Us</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
-          hic dignissimos ratione ea quae.</p>
-      </div>
-      <div class="col-md-4">
-        <i class="fa-solid fa-plane fa-4x mr-4"></i>
-        <hr>
-        <h3>Shipping Info</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, debitis nam! Repudiandae, provident iste consequatur
-          hic dignissimos ratione ea quae.</p>
-      </div>        
-    </div>
-  </div>
-</section>
-
+  </section>
 {% endblock %}

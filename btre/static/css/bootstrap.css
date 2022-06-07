@@ -529,6 +529,7 @@ pre {
 
 .col-6 {
   flex: 0 0 50%;
+  color: #fff;
   max-width: 50%; }
 
 .col-7 {
@@ -3374,12 +3375,12 @@ input[type="button"].btn-block {
     background-color: #071224; }
 
 .badge-secondary {
-  color: #212529;
-  background-color: #30caa0; }
+  color: #9b6fef;
+  background-color: #16dd37; }
   .badge-secondary[href]:hover, .badge-secondary[href]:focus {
     color: #212529;
     text-decoration: none;
-    background-color: #26a17f; }
+    background-color: #9b6fef; }
 
 .badge-success {
   color: #fff;

@@ -529,7 +529,7 @@ pre {
 
 .col-6 {
   flex: 0 0 50%;
-  color: #fff;
+  color: rgb(0, 209, 146) !important;
   max-width: 50%; }
 
 .col-7 {
@@ -1649,7 +1649,7 @@ fieldset:disabled a.btn {
 
 .btn-secondary {
   color: #212529;
-  background-color: #30caa0;
+  background-color: #3289a3 !important;
   border-color: #30caa0; }
   .btn-secondary:hover {
     color: #fff;
@@ -3376,9 +3376,9 @@ input[type="button"].btn-block {
 
 .badge-secondary {
   color: #9b6fef !important;
-  background-color: #16dd37; }
+  background-color: #3289a3 !important; }
   .badge-secondary[href]:hover, .badge-secondary[href]:focus {
-    color: #212529;
+    color: #9b6fef !important;
     text-decoration: none;
     background-color: #9b6fef; }
 
@@ -4287,7 +4287,7 @@ button.bg-primary:focus {
   background-color: #071224 !important; }
 
 .bg-secondary {
-  background-color: #30caa0 !important; }
+  background-color: #9b6fef !important; }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
 button.bg-secondary:hover,

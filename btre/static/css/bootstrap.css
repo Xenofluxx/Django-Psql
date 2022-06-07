@@ -3375,7 +3375,7 @@ input[type="button"].btn-block {
     background-color: #071224; }
 
 .badge-secondary {
-  color: #9b6fef;
+  color: #9b6fef !important;
   background-color: #16dd37; }
   .badge-secondary[href]:hover, .badge-secondary[href]:focus {
     color: #212529;
